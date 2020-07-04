@@ -1,8 +1,11 @@
 cd /opt
 
+<<<<<<< HEAD
 mkdir /opt/ser-b/files
 mkdir /opt/ser-b/miles
 
+=======
+>>>>>>> 337410a4930ef5ee0e37bf3831c54e8caba0d476
 git clone https://github.com/sh-serenity/ser-b.git
 
 export dbuser=dbuser
