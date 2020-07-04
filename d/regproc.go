@@ -25,11 +25,11 @@ func encodeRFC2047(String string) string{
 func mailsend(fname string, sname string,email string, msg string) {
 	// Set up authentication information.
 
-	smtpServer :=  mailserver
+	smtpServer :=  "mail.vovka.com"
 	auth := smtp.PlainAuth(
 		"",
-		mailuser,
-		mailpass,
+		"valdemar@vovka.com",
+		"tralalala",
 		smtpServer,
 	)
 
@@ -86,6 +86,7 @@ func GenerateRandomString(s int) (string, error) {
 	b, err := GenerateRandomBytes(s)
 	return base64.URLEncoding.EncodeToString(b), err
 }
+
 func regprocHandle(w http.ResponseWriter, r *http.Request) {
 	chknon(w,r)
 	db := dbConnect()
@@ -206,18 +207,18 @@ func regprocHandle(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if rchk.Usernamereg == 1 && rchk.Usernameex == 1 && rchk.Passwordcon == 1 && rchk.Passwordrx == 1 && rchk.Invitech == 1 && rchk.fnrx == 1  && rchk.Invitech ==  1{
-/*		result, err := db.Exec("insert into users (username, password) values(?,MD5(?))", username, password)
+		result, err := db.Exec("insert into users (username, password) values(?,MD5(?))", username, password)
 		if err != nil {
 			fmt.Println(err)
 		}
-		fmt.Println(result.LastInsertId()) // id добавленного объекта
-		fmt.Println(result.RowsAffected()) */
+		fmt.Println(result.LastInsertId()) 
+		fmt.Println(result.RowsAffected()) 
 		str,err := GenerateRandomString(40)
 		if err != nil {
 			fmt.Println(err)
 		}
 		fmt.Println(str)
-		result, err := db.Exec("insert into users (username,password,fname,sname) values(?,MD5(?),?,?)", username, password, fname, sname)
+		result, err = db.Exec("insert into users (username,password,fname,sname) values(?,MD5(?),?,?)", username, password, fname, sname)
 		if err != nil {
 			fmt.Println(err)
 		}
@@ -233,10 +234,11 @@ func regprocHandle(w http.ResponseWriter, r *http.Request) {
 		resume = "На ваш email: " + username + " отправенна ссылка для его подтвержедения. Перейдите по ссылке, после этого вы получите возможность заходить на сайт."
 		p := &trash{Title: "Завершение регистрации", Note: resume}
 		t, _ := template.ParseFiles("tmpl/tmp1.html")
-		t.Execute(w, p) */
+		t.Execute(w, p) 
 		http.Redirect(w,r,"/enter/",301)
+		*/
 	} else {
-		resume = "Данные введе6ны с ошибками. Поправьте и попробуйте снова."
+		resume = "Данные введены с ошибками. Поправьте и попробуйте снова."
 		url = "/reg/"
 		to = "Регистрация"
 		//	end = 0

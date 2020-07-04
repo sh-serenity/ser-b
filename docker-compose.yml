@@ -8,7 +8,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: $myroot
     volumes:
-    - /opt/serenity/mysql:/var/lib/mysql
+    - /opt/ser-b/mysql:/var/lib/mysql
 
   calm:
     container_name: calm      
@@ -19,7 +19,7 @@ services:
       - "9001:9001"
     restart: always
     volumes:
-    - /opt/serenity:/files
+    - /opt/ser-b/files
   web:
     container_name: nginx
     image: nginx:stable
@@ -30,5 +30,5 @@ services:
     ports:
       - "80:80"
     volumes:
-    - /opt/serenity-blog/conf.d:/etc/nginx/conf.d
-    - /opt/serenity-blog:/files
+    - /opt/ser-b/conf.d:/etc/nginx/conf.d
+    - /opt/ser-b:/files
