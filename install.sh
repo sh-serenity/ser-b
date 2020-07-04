@@ -1,6 +1,6 @@
 cd /opt
 
-git clone https://github.com/sh-serenity/serenity-blog.git
+git clone https://github.com/sh-serenity/ser-b.git
 
 export dbuser=dbuser
 export dbpass=12houres
@@ -8,7 +8,7 @@ export dbhost=dbhost
 export db=db
 export myroot=dbblaroot
 
-cd serenity-blog
+cd ser-b
 
 docker-compose up --build -d
 

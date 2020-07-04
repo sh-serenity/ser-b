@@ -1,12 +1,11 @@
 FROM golang:buster
 ENV GOPATH /go
 RUN apt-get update
-RUN apt-get install git
 
 WORKDIR /go
-RUN mkdir /go/serenity-blog
+ADD ./demititarztion /go/
 
-WORKDIR /go/serenity-blog
+WORKDIR /go/demititarztion
 RUN go get github.com/go-sql-driver/mysql github.com/gorilla/sessions github.com/shurcooL/github_flavored_markdown
 RUN go build
 
