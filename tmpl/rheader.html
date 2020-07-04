@@ -1,0 +1,21 @@
+{{ define "Index" }}
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>serenity-org.net</title>
+    <meta name="viewport" content="width=830, initial-scale=1">
+    <link href="/static/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="right"> <ul>
+            {{ $length := len . }}
+            {{ range . }}
+                <li>
+                    <a href="/users/{{.Lid}}">{{.Lfname}} {{.Lsname}}</a></li>
+            {{ end }}
+        </ul>
+    </div>
+    <center> <img src="/static/serenity.jpg"></center>
+    <div><center style="font-size: 30px"> n+1 попытка. И далекооо за пять </center>
+{{ end }}

@@ -1,0 +1,17 @@
+
+{{ define "Index" }}
+        <div style="border: 0px; background: black;"> <ul>
+{{ $length := len . }}
+{{ range . }}
+    <li>
+
+        {{.Comment}}</> <br>
+запостчено {{.Username}},
+{{ .Comtime }}<br></li>
+{{ end }}
+            </ul>
+        </div>
+
+{{ end }}
+</ul>
+</div>

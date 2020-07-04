@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>hades.shushik.net</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=1200, initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link href='/static/style.css' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div class="left">
+    <p> <img src="{{.Userpic}}"> <a href=""/users{{.Id}}>Посмолтнть данные </a> </p>
+</div>
+<div style="background:#533333">
+    <table><tr><td><img src="/static/pes.jpg"></td><td>
+                <h1>Hades</h1>&nbsp
+            </td></tr></table>
+</div>
+<div>
+    <a href = "/sign/">Домой</a>
+    <a href="/postform">Написать пост</a>
+    <a href="/posts">Почтиать посты</a>
+</div>
+<div>
+    <p>{{.Comment}}</p><br>
+    запостчено {{.Username}}, {{.Posttime}}
+</div>
+</div>
+<div>
+    <p> Copyleft shushik.net 2020 </p>
+</div>
+</body>
+</html>

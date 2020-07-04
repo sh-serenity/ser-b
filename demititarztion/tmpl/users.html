@@ -1,0 +1,11 @@
+{{ define "Index" }}
+    <div class="right"> <ul>
+            {{ $length := len . }}
+            {{ range . }}
+                <li>
+                    <a href="/users/{{.Lid}}">{{.Lfname}} {{.Lsname}}</a></li>
+            {{ end }}
+        </ul>
+    </div>
+{{ end }}
+</ul>

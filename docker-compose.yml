@@ -1,0 +1,34 @@
+version: '3'
+services:
+  db:
+    container_name: dbhost
+    image: mysql:5.7
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: $myroot
+    volumes:
+    - /opt/serenity/mysql:/var/lib/mysql
+
+  calm:
+    container_name: calm      
+    build: ./
+    depends_on:
+      - db
+    ports:
+      - "9001:9001"
+    restart: always
+    volumes:
+    - /opt/serenity:/files
+  web:
+    container_name: nginx
+    image: nginx:stable
+    restart: always
+    depends_on:
+    - calm
+
+    ports:
+      - "80:80"
+    volumes:
+    - /opt/serenity-blog/conf.d:/etc/nginx/conf.d
+    - /opt/serenity-blog:/files
